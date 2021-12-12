@@ -4,6 +4,7 @@ from post.models import Post
 # Create your models here.
 class Comments(models.Model):
     pid = models.ForeignKey(Post, on_delete=models.CASCADE)
+    cid = models.IntegerField()
     content = models.TextField(blank=False)
     date = models.DateTimeField(auto_now=True, auto_created=True)
     commenter = models.CharField(max_length=20)
