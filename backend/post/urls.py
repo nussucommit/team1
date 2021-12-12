@@ -2,5 +2,8 @@ from django.urls import path
 from post import views
 
 urlpatterns = [
-  path('posts/', views.get_all_post),
+  path('posts/list', views.show_all_posts),
+  path('posts/create', views.create_new_post),
+  path('posts/delete', views.delete_a_post),
+  path('posts/update', views.update_a_post),
 ]
