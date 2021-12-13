@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Post from "./components/Post";
-
+import Navbar from "./components/Navbar/Navbar";
+import PostList from "./components/PostList";
 
 // Mock Data for Frontend Testing
 const POSTS = [
@@ -25,17 +24,17 @@ const POSTS = [
     postDate: "26/12/21"
   },
 ]
+// End of Mock Data
 
-const [posts, setPosts] = useState(POSTS);
+
 
 function App() {
+  console.log("App loaded.")
+  const [posts, setPosts] = useState(POSTS);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>PostIT</p>
-      </header>
-      <Post postID={0} postTitle={"Test0"} postAuthor={"testAuthor0"} postLikes={"0"} postCommentsNum={"01"} postContent={"Lorem Ipsum"} postDate={"25/12/21"} />
+      <Navbar />
+      <PostList posts={posts} />
     </div>
   );
 }
