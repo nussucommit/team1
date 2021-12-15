@@ -1,15 +1,5 @@
 .box {
-    text-align: left;
-    border: black ridge 1px;
-    border-radius: 10px;
-    margin: 3px;
-    width: 20rem;
-    padding-left: 10px;
-  }
-
-.todo {
-  width: 30%;
-  display: flex;
+  width: 70%;
   align-items: center;
   justify-content: space-between;
   padding: 16px 32px;
@@ -29,4 +19,13 @@
   color: green;
   cursor: pointer;
   text-decoration: line-through;
+}
+
+.moreInfo {
+    display: flex;
+    white-space: pre-line;
+}
+
+.moreInfo-right {
+    display: flex;
 }

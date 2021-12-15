@@ -6,11 +6,11 @@ import PostList from "./components/PostList";
 // Mock Data for Frontend Testing
 const POSTS = [
   {
-    postID: 0,
+    postID: "0",
     postTitle: "Test0",
     postAuthor: "Poster0",
-    postLikes: 0,
-    postCommentsNum: 0,
+    postLikes: "0",
+    postCommentsNum: "0",
     postContent: "Lorem Ipsum",
     postDate: "25/12/21"
   },

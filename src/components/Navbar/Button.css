@@ -5,6 +5,7 @@
 .btn {
     padding: 8px 20px;
     border-radius: 4px;
+    font-size: 20px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -32,15 +33,9 @@
 }
 
 .btn--medium {
-    padding: 8px 20px;
-    border-radius: 4px;
-    font-size: 18px;
-    color: #fff;
-}
-
-.btn--medium {
     padding: 12px 26px;
     border-radius: 4px;
     font-size: 20px;
+    white-space: nowrap;
     color: #fff;
 }

@@ -1,12 +1,14 @@
+import './SearchBar.css'
+
 const SearchBar = () => (
-    <form action="/" method="get">
+    <form className="search-bar" action="/" method="get">
         <div>
             <input
                 placeholder="Type Here..."
                 type="text"
                 id="header-search"
             />
-            {/* <button className="submit-button" type="submit">Search</button> */}
+            <input type="submit" value="Submit"/>
         </div>
     </form>
 );
