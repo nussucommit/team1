@@ -1,6 +1,18 @@
-* {
-  box-sizing: border-box;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 28px;
 }
