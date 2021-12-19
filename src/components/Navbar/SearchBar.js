@@ -8,7 +8,7 @@ const SearchBar = () => (
                 type="text"
                 id="header-search"
             />
-            <input type="submit" value="Submit"/>
+            {/* <input type="submit" value="Submit"/> */}
         </div>
     </form>
 );
