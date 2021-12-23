@@ -7,7 +7,7 @@ from django.contrib.auth import login, update_session_auth_hash, authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
-from .serializer import RegisterSerializer, UserSerializer #, ChangePasswordSerializer
+from .serializer import RegisterSerializer, UserSerializer, ChangePasswordSerializer
 from datetime import datetime, timedelta
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
@@ -40,6 +40,41 @@ class RegisterApi(generics.GenericAPIView):
         return Response({
         "message": "Registration successful. You may now login"
         })
+
+class LogoutView(APIView):
+
+    def post(self, request):
+        try:
+            refresh_token = request.data.get("refresh_token")
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({"detail": "OK"}, status.HTTP_200_OK)
+        except Exception as e:
+            print(e)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+class ChangePasswordView(generics.UpdateAPIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ChangePasswordSerializer
+    model = User
+
+    def get_object(self, queryset=None):
+        obj = self.request.user
+        return obj
+
+    def update(self, request, *args, **kwargs):
+        serializer = ChangePasswordSerializer(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.update(request.user, serializer.validated_data)
+        response = {
+            'status': 'success',
+            'code': status.HTTP_200_OK,
+            'message': 'Password updated successfully',
+            'data': []
+        }
+
+        return Response(response)
 
 @api_view(['POST'])
 def authLogin(request):
