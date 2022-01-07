@@ -1,0 +1,10 @@
+.search-bar {
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    padding-left: 0.5%;
+    outline: none;
+    border: none;
+    display: flex;
+    flex-flow: row wrap;
+}
