@@ -5,59 +5,32 @@ import LogInForm from '../Forms/LogInForm';
 import SignUpForm from '../Forms/SignUpForm';
 import './Navbar.css'
 
-class Navbar extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          showLogIn: false,
-          showSignUp: false
-        };
-        this.showLogInModal = this.showModal.bind(this);
-        this.hideLogInModal = this.hideModal.bind(this);
-        this.showSignUpModal = this.showModal.bind(this);
-        this.hideSignUpModal = this.hideModal.bind(this);
-      }
-    
-      showLogInModal = () => {
-        this.setState({ showLogIn: true });
-      };
-      hideLogInModal = () => {
-        this.setState({ showLogIn: false });
-      };
-      showSignUpModal = () => {
-        this.setState({ showSignUp: true });
-      };
-      hideSignUpModal = () => {
-        this.setState({ showSignUp: false });
-      };
+const Navbar = ({ loginModalShow, signupModalShow, setSignupModalShow, setLoginModalShow }) => {
+    return (
+        <nav className="NavbarItems">
+            <h1 className="navbar-logo">PostIT</h1>
+            <SearchBar />
+            <Button onClick={() => setSignupModalShow(true)}>
+                Sign Up
+            </Button>
 
-    state = { colciked: false }
+            <SignUpForm
+                show={signupModalShow}
+                onHide={() => setSignupModalShow(false)}
+            />
 
-    render() {
-        return(
+            <Button onClick={() => setLoginModalShow(true)}>
+                Log In
+            </Button>
 
-            <nav className="NavbarItems">
-                <h1 className="navbar-logo">PostIT</h1>
-                <SearchBar />
+            <LogInForm
+                show={loginModalShow}
+                onHide={() => setLoginModalShow(false)}
+            />
 
-                <div className="nav-menu"></div>
-                {/* <Button type="button" onClick={SignUpForm.showModal} id="signup-btn">Sign Up</Button>
-                <Button type="button" onClick={LogInForm.showModal} id="login-btn">Log In</Button> */}
-
-                <SignUpForm show={this.state.show} handleClose={this.hideModal}>
-                    <p>SignUpForm</p>
-                </SignUpForm>
-                <LogInForm show={this.state.show} handleClose={this.hideModal}>
-                    <p>LogInForm</p>
-                </LogInForm>
-                <button type="button" onClick={this.showModal}>
-                    Open
-                </button>
-                
-                                
-            </nav>
-        )
-    }
+            <div className="nav-menu"></div>
+        </nav>
+    );
 }
 
 export default Navbar

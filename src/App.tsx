@@ -47,11 +47,14 @@ const POSTS = [
 
 
 function App() {
+  const [loginModalShow, setLoginModalShow] = React.useState(false);
+  const [signupModalShow, setSignupModalShow] = React.useState(false);
+
   console.log("App loaded.")
   const [posts, setPosts] = useState(POSTS);
   return (
     <div className="App">
-      <Navbar/> 
+      <Navbar loginModalShow={loginModalShow} signupModalShow={signupModalShow} setLoginModalShow={setLoginModalShow} setSignupModalShow={setSignupModalShow}/> 
       <PostList posts={posts} />
     </div>
   );
@@ -59,23 +62,3 @@ function App() {
 }
 
 export default App;
-
-
-//   <Layout>
-//     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', flexFlow: 'nowrap', display: "flex" }}>
-//       <div className="logo"> PostIT </div>
-//       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-//         <Menu.Item key="1">nav 1</Menu.Item>
-//         <Menu.Item key="2">nav 2</Menu.Item>
-//         <Menu.Item key="3">nav 3</Menu.Item>
-//       </Menu>
-//     </Header>
-//     <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-//       <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-//         <PostList></PostList>
-//       </div>
-//     </Content>
-//     <Footer style={{ textAlign: 'center' }}>Designed by Team 1</Footer>
-//   </Layout>
-
-// );
