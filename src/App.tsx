@@ -73,7 +73,7 @@ function App() {
   return (
     <div className="App">
       <Navbar loginModalShow={loginModalShow} signupModalShow={signupModalShow} setLoginModalShow={setLoginModalShow} setSignupModalShow={setSignupModalShow}/> 
-      <PostList posts={posts} />
+      <div className="postlist"> <PostList posts={posts} /> </div>
     </div>
   );
 

@@ -9,9 +9,10 @@ const Navbar = ({ loginModalShow, signupModalShow, setSignupModalShow, setLoginM
     return (
         <nav className="NavbarItems">
             <h1 className="navbar-logo">PostIT</h1>
-            <SearchBar />
+
+            <div className="navbar-logo"><SearchBar /></div>
             
-            <div style={{ display: "flex" }}>
+            <div className="signup-login" style={{ display: "flex" }}>
                 <Button onClick={() => setSignupModalShow(true)}>
                     Sign Up
                 </Button>

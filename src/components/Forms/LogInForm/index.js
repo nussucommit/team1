@@ -18,15 +18,20 @@ function LogInForm(props) {
       <Modal.Body>
         <p>Please fill up this form to log in.</p>
         <form>
-          <label for="email"><b>Email</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required />
-          <br/>
+          
+          <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input class="form-control" type="email" placeholder="Enter Email" name="email" required />
+            <br/>
+          </div>
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required />
-          <br/>
+          <div class="form-group">
+            <label for="psw"><b>Password</b></label>
+            <input class="form-control" type="password" placeholder="Enter Password" name="psw" required />
+            <br/>
+          </div>
 
-          <button type="submit" class="login">Log In</button>
+          <button class="btn btn-primary" type="submit">Log In</button>
         </form>
       </Modal.Body>
       <Modal.Footer>

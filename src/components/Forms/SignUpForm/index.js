@@ -18,22 +18,30 @@ function SignUpForm(props) {
       <Modal.Body>
         <p>Please fill up this form to create an account.</p>
         <form>
-          <label for="username"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required />
-          <br/>
+          <div class="form-group">
+            <label for="username"><b>Username</b></label>
+            <input class="form-control" type="text" placeholder="Enter Username" name="username" required />
+            <br/>
+          </div>
 
-          <label for="email"><b>Email</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required />
-          <br/>
+          <div>
+            <label for="email"><b>Email</b></label>
+            <input class="form-control" type="email" placeholder="Enter Email" name="email" required />
+            <br/>
+          </div>
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required />
-          <br/>
+          <div>
+            <label for="psw"><b>Password</b></label>
+            <input class="form-control" type="password" placeholder="Enter Password" name="psw" required />
+            <br/>
+          </div>
 
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required />
-          <br/>
-          <button type="submit" class="signup">Sign Up</button>
+          <div>
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input class="form-control" type="password" placeholder="Repeat Password" name="psw-repeat" required />
+            <br/>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
         </form>
       </Modal.Body>
       <Modal.Footer>
