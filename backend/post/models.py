@@ -9,3 +9,8 @@ class Post(models.Model):
     poster = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     date = models.DateTimeField(auto_now=True, auto_created=True)
     likes = models.PositiveIntegerField(default=0)
+
+class Like(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    

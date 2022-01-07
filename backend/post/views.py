@@ -2,7 +2,7 @@ from rest_framework import generics, serializers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from post.models import Post
+from post.models import Post, Like
 from post.serializer import PostSerializer
 import datetime
 from rest_framework.permissions import IsAuthenticated
@@ -63,4 +63,26 @@ def update_a_post(request):
         update_object.date = datetime.datetime.now()
         update_object.save()
         return Response(PostSerializer(update_object).data,status=status.HTTP_201_CREATED)
+    return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['PUT'])
+def like_post(request):
+    if request.user:
+        update_object = Post.objects.get(id = request.data["id"])
+        if not update_object:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        update_object.likes = update_object.likes + 1
+        update_object.save()
+        Like.objects.create(user=request.user, post=update_object)
+        return Response(status=status.HTTP_200_OK)
+    return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['GET'])
+def get_like(request):
+    if request.user:
+        like_object = Like.objects.filter(user=request.user.id, post=request.data["id"])
+        response = {"has_liked": False}
+        if like_object:
+            response["has_liked"] = True
+        return Response(response, status=status.HTTP_200_OK)
     return Response(status=status.HTTP_401_UNAUTHORIZED)
