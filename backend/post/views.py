@@ -23,7 +23,7 @@ def show_all_posts(request):
 
 @api_view(['Post'])
 def create_new_post(request):
-    if request.user:
+    if request.user.is_authenticated:
         data = {'title': request.data['title'], 'content': request.data['content'], 'poster': request.user.id}
         serializer = PostSerializer(data=data)
         if serializer.is_valid():
@@ -35,7 +35,7 @@ def create_new_post(request):
 
 @api_view(['Delete'])
 def delete_a_post(request):
-    if request.user:
+    if request.user.is_authenticated:
         target = Post.objects.filter(poster = request.user.id).filter(id = request.data["id"])
         if not(target):
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -46,7 +46,7 @@ def delete_a_post(request):
 
 @api_view(['PUT'])
 def update_a_post(request):
-    if request.user:
+    if request.user.is_authenticated:
         update_object = Post.objects.get(id = request.data["id"])
         if not update_object or update_object['poster'] != request.user.id:
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -67,7 +67,7 @@ def update_a_post(request):
 
 @api_view(['PUT'])
 def like_post(request):
-    if request.user:
+    if request.user.is_authenticated:
         update_object = Post.objects.get(id = request.data["id"])
         if not update_object:
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -79,7 +79,7 @@ def like_post(request):
 
 @api_view(['GET'])
 def get_like(request):
-    if request.user:
+    if request.user.is_authenticated:
         like_object = Like.objects.filter(user=request.user.id, post=request.data["id"])
         response = {"has_liked": False}
         if like_object:
