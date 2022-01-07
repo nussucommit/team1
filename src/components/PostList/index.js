@@ -3,7 +3,7 @@ import Post from "../Post";
 const PostList = ({ posts }) => {
   console.log(posts)
   return (
-    <div>
+    <div className="postlist">
       {posts.map((post, index) => (
         <Post
           key={index}

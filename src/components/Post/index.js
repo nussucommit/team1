@@ -10,6 +10,7 @@ const Post = ({ content }) => {
         <div className={styles.moreInfo}>
           <p> Author: {content.postAuthor}  Date: {content.postDate}  Likes: {content.postLikes}  Comments: {content.postCommentsNum} </p>
         </div>
+        <button>Like</button>
       </div>
     );
   };

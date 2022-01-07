@@ -10,23 +10,26 @@ const Navbar = ({ loginModalShow, signupModalShow, setSignupModalShow, setLoginM
         <nav className="NavbarItems">
             <h1 className="navbar-logo">PostIT</h1>
             <SearchBar />
-            <Button onClick={() => setSignupModalShow(true)}>
-                Sign Up
-            </Button>
+            
+            <div style={{ display: "flex" }}>
+                <Button onClick={() => setSignupModalShow(true)}>
+                    Sign Up
+                </Button>
 
-            <SignUpForm
-                show={signupModalShow}
-                onHide={() => setSignupModalShow(false)}
-            />
+                <SignUpForm
+                    show={signupModalShow}
+                    onHide={() => setSignupModalShow(false)}
+                />
 
-            <Button onClick={() => setLoginModalShow(true)}>
-                Log In
-            </Button>
+                <Button onClick={() => setLoginModalShow(true)}>
+                    Log In
+                </Button>
 
-            <LogInForm
-                show={loginModalShow}
-                onHide={() => setLoginModalShow(false)}
-            />
+                <LogInForm
+                    show={loginModalShow}
+                    onHide={() => setLoginModalShow(false)}
+                />
+            </div>
 
             <div className="nav-menu"></div>
         </nav>

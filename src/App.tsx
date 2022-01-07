@@ -17,7 +17,7 @@ import PostList from "./components/PostList";
 const POSTS = [
   {
     postID: 0,
-    postTitle: "Test0",
+    postTitle: "Title0",
     postAuthor: "Poster0",
     postLikes: "0",
     postCommentsNum: "0",
@@ -26,7 +26,7 @@ const POSTS = [
   },
   {
     postID: 1,
-    postTitle: "Test1",
+    postTitle: "Title1",
     postAuthor: "Poster1",
     postLikes: 0,
     postCommentsNum: 0,
@@ -35,12 +35,30 @@ const POSTS = [
   },
   {
     postID: 2,
-    postTitle: "Title 2",
+    postTitle: "Title2",
     postAuthor: "Poster2",
     postLikes: 100,
     postCommentsNum: 20,
     postContent: "Lorem Ipsum 2",
     postDate: "27/12/21"
+  },
+  {
+    postID: 3,
+    postTitle: "Title3",
+    postAuthor: "Poster3",
+    postLikes: 10,
+    postCommentsNum: 50,
+    postContent: "Lorem Ipsum 3",
+    postDate: "28/12/21"
+  },
+  {
+    postID: 4,
+    postTitle: "Title4",
+    postAuthor: "Poster4",
+    postLikes: 50,
+    postCommentsNum: 20,
+    postContent: "Lorem Ipsum 4",
+    postDate: "29/12/21"
   },
 ]
 // End of Mock Data
