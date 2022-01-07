@@ -16,7 +16,7 @@ import PostList from "./components/PostList";
 // Mock Data for Frontend Testing
 const POSTS = [
   {
-    postID: "0",
+    postID: 0,
     postTitle: "Test0",
     postAuthor: "Poster0",
     postLikes: "0",
@@ -33,6 +33,15 @@ const POSTS = [
     postContent: "Lorem Ipsum 1",
     postDate: "26/12/21"
   },
+  {
+    postID: 2,
+    postTitle: "Title 2",
+    postAuthor: "Poster2",
+    postLikes: 100,
+    postCommentsNum: 20,
+    postContent: "Lorem Ipsum 2",
+    postDate: "27/12/21"
+  },
 ]
 // End of Mock Data
 
@@ -42,10 +51,16 @@ function App() {
   const [posts, setPosts] = useState(POSTS);
   return (
     <div className="App">
-      <Navbar />
+      <Navbar/> 
       <PostList posts={posts} />
     </div>
   );
+
+}
+
+export default App;
+
+
 //   <Layout>
 //     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', flexFlow: 'nowrap', display: "flex" }}>
 //       <div className="logo"> PostIT </div>
@@ -64,6 +79,3 @@ function App() {
 //   </Layout>
 
 // );
-}
-
-export default App;

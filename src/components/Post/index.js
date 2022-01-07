@@ -1,18 +1,17 @@
 import styles from "./Post.module.css";
 
-const Post = ({ postID, postTitle, postAuthor, postLikes, postCommentsNum, postContent, postDate}) => {
+const Post = ({ content }) => {
     return (
       <div className={styles.box}>
-        <h1> Title: {postTitle} </h1>
-        <p> Content: {postContent}</p>
+        <h1> {content.postTitle} </h1>
+        <p> {content.postContent}</p>
         <br/>
 
         <div className={styles.moreInfo}>
-          <p> Author: {postAuthor} Date: {postDate} </p>
-          <p align="right"> Likes: {postLikes} Comments: {postCommentsNum} </p>
+          <p> Author: {content.postAuthor}  Date: {content.postDate}  Likes: {content.postLikes}  Comments: {content.postCommentsNum} </p>
         </div>
       </div>
     );
   };
-
+ 
 export default Post;
